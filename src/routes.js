@@ -2,13 +2,15 @@ import React from 'react';
 import {Route, Switch} from 'react-router-dom';
 
 //Components
-import App from './App'
+import Home from './pages/Home'
+import Search from './pages/Search'
 
 const Routes = () =>  {
 
   return(
     <Switch>
-      <Route path='/' exact component={App}/>
+      <Route path='/' exact component={Home}/>
+      <Route path='/search' component={Search}/>
     </Switch>
   );
 }
