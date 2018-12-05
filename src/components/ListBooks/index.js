@@ -2,13 +2,12 @@ import React from 'react'
 
 //Components
 import ButtonOpenSearch from '../ButtonOpenSearch';
+import ListBooksTitle from '../ListBooksTitle';
 
 const ListBooks = () => {
   return (
     <div className="list-books">
-      <div className="list-books-title">
-        <h1>MyReads</h1>
-      </div>
+      <ListBooksTitle />
       <div className="list-books-content">
         <div>
           <div className="bookshelf">
