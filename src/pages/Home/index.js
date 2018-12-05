@@ -1,12 +1,12 @@
 import React from 'react'
 // import * as BooksAPI from './BooksAPI'
-import './App.css'
+import './Home.css'
 
 //Components
-import SearchBooks from './components/SearchBooks'
-import ListBooks from './components/ListBooks';
+import SearchBooks from '../../components/SearchBooks'
+import ListBooks from '../../components/ListBooks';
 
-class BooksApp extends React.Component {
+class Home extends React.Component {
   state = {
     /**
      * TODO: Instead of using this state variable to keep track of which page
@@ -30,4 +30,4 @@ class BooksApp extends React.Component {
   }
 }
 
-export default BooksApp
+export default Home
