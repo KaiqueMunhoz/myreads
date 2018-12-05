@@ -1,5 +1,7 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+
+//Components
+import ButtonOpenSearch from '../ButtonOpenSearch';
 
 const ListBooks = () => {
   return (
@@ -158,9 +160,7 @@ const ListBooks = () => {
           </div>
         </div>
       </div>
-      <div className="open-search">
-        <Link to='/search' className="open-search">Add a book</Link>
-      </div>
+      <ButtonOpenSearch />
     </div>
   )
 }
