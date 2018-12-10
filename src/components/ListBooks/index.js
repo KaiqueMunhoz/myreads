@@ -15,7 +15,7 @@ const ListBooks = () => {
           <Bookshelf />
           <Bookshelf />
         </div>
-        </div>
+      </div>
       <ButtonOpenSearch />
     </div>
   )
