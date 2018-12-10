@@ -10,9 +10,9 @@ const ListBooks = () => {
     <div className="list-books">
       <ListBooksTitle />
       <div className="list-books-content">
-        <Bookshelf />
-        <Bookshelf />
-        <Bookshelf />
+        <Bookshelf title="Current reading" />
+        <Bookshelf title="Want to read" />
+        <Bookshelf title="Read" />
       </div>
       <ButtonSearch />
     </div>
