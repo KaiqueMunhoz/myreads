@@ -1,10 +1,10 @@
 import React from 'react'
-import SearchBookBar from '../SearchBookBar'
+import SearchBooksBar from '../SearchBooksBar'
 
 const SearchBooks = () => {
   return (
     <div className="search-books">
-      <SearchBookBar />
+      <SearchBooksBar />
       <div className="search-books-results">
         <ol className="books-grid"></ol>
       </div>

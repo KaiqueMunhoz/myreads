@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const SearchBookBar = () => {
+const SearchBooksBar = () => {
   return (
     <div className="search-books-bar">
       <Link to='/' className="close-search">Close</Link>
@@ -21,4 +21,4 @@ const SearchBookBar = () => {
   )
 }
 
-export default SearchBookBar
+export default SearchBooksBar
