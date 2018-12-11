@@ -1,8 +1,8 @@
 import React from 'react'
 
-const book = {
+const Book = (props) => {
   "title": "Learning Web Development with React and Bootstrap",
-  "authors": [
+  const {book} = props
     "Harmeet Singh",
     "Mehul Bhatt"
   ],
@@ -42,8 +42,7 @@ const book = {
   "id": "sJf1vQAACAAJ",
   "shelf": "currentlyReading"
 }
-
-const Book = () => {
+  
   return (
     <li>
       <div className="book">
