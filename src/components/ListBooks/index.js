@@ -10,6 +10,7 @@ const ListBooks = () => {
     <div className="list-books">
       <ListBooksTitle />
       <div className="list-books-content">
+        {/* Criar um array com os possíves nomes para as prateleiras e fazer um loop ao montar os bookshelf */}
         <Bookshelf title="Current reading" />
         <Bookshelf title="Want to read" />
         <Bookshelf title="Read" />

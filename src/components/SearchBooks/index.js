@@ -1,4 +1,6 @@
 import React from 'react'
+
+//Components
 import SearchBooksBar from '../SearchBooksBar'
 
 const SearchBooks = () => {
