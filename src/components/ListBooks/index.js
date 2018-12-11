@@ -5,15 +5,14 @@ import ButtonSearch from '../ButtonSearch';
 import ListBooksTitle from '../ListBooksTitle';
 import Bookshelf from '../Bookshelf';
 
+const titles = ["Current reading", "Want to read", "Read"]
+
 const ListBooks = () => {
   return (
     <div className="list-books">
       <ListBooksTitle />
       <div className="list-books-content">
-        {/* Criar um array com os possíves nomes para as prateleiras e fazer um loop ao montar os bookshelf */}
-        <Bookshelf title="Current reading" />
-        <Bookshelf title="Want to read" />
-        <Bookshelf title="Read" />
+        {titles.map(name => <Bookshelf title={name}/> )}
       </div>
       <ButtonSearch />
     </div>
