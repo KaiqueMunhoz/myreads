@@ -6,15 +6,35 @@ import ButtonSearch from '../ButtonSearch';
 import ListBooksTitle from '../ListBooksTitle';
 import Bookshelf from '../Bookshelf';
 
-const titles = ["Current reading", "Want to read", "Read"]
-
-let other = []
+const shelfs = [
+  {
+    title: "Current reading",
+    apiValue: "currentlyReading"
+  },
+  {
+    title: "Want to read",
+    apiValue: "wantToRead"
+  },
+  {
+    title: "Read",
+    apiValue: "read"
+  }
+]
 
 class ListBooks extends React.Component {
 
+  state = {
+    books: []
+  }
+
   componentDidMount() {
-    other = BooksAPI.getAll().then(books => {other = books})
-    console.log(other)
+    BooksAPI.getAll().then(books => this.setState({ books }))
+  }
+
+  filterBooks = (apiValue) => {
+    return this.state.books.filter(book => {
+      return book.shelf === apiValue
+    })
   }
   
   render () {
@@ -22,7 +42,10 @@ class ListBooks extends React.Component {
       <div className="list-books">
         <ListBooksTitle />
         <div className="list-books-content">
-          {titles.map(name => <Bookshelf title={name}/> )}
+          {shelfs.map(shelf => {
+            const books = this.filterBooks(shelf.apiValue)
+            return ( <Bookshelf title={shelf.title} books={books}/> )
+          })}
         </div>
         <ButtonSearch />
       </div>
