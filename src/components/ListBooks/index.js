@@ -10,10 +10,12 @@ const titles = ["Current reading", "Want to read", "Read"]
 
 let other = []
 
-class ListBooks extends React.Component {
+  state = {
+    books: []
+  }
 
   componentDidMount() {
-    other = BooksAPI.getAll().then(books => {other = books})
+    BooksAPI.getAll().then(books => this.setState({ books }))
     console.log(other)
   }
   
