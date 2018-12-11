@@ -1,5 +1,4 @@
 import React from 'react'
-import * as BooksAPI from '../../api/BooksAPI'
 import './Home.css'
 
 //Components
