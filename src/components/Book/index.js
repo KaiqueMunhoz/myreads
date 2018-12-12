@@ -21,9 +21,7 @@ const Book = (props) => {
           </div>
         </div>
         <div className="book-title">{book.title}</div>
-        {/* Se preocupar quando tiver mais de um autor */}
-        <div className="book-authors">{book.authors[0]}</div>
-        <div className="book-authors">{book.authors[1]}</div>
+        {book.authors.map(author => <div className="book-authors">{author}</div> )}
       </div>
     </li>
   )
