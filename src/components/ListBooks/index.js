@@ -44,7 +44,7 @@ class ListBooks extends React.Component {
         <div className="list-books-content">
           {shelfs.map(shelf => {
             const books = this.filterBooks(shelf.apiValue)
-            return ( <Bookshelf title={shelf.title} books={books}/> )
+            return ( <Bookshelf key={shelf.title + shelf.apiValue} title={shelf.title} books={books}/> )
           })}
         </div>
         <ButtonSearch />
