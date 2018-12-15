@@ -1,13 +1,27 @@
 import React from 'react'
 
-class Book extends React.Component {
-
-  moveBookshelf = (event) => {
-    console.log(event.target.value)
+const shelfs = [
+  {
+    title: "none",
+    apiValue: "None"
+  },
+  {
+    title: "Current reading",
+    apiValue: "currentlyReading"
+  },
+  {
+    title: "Want to read",
+    apiValue: "wantToRead"
+  },
+  {
+    title: "Read",
+    apiValue: "read"
   }
-  
-  render() {
-    const {book} = this.props
+]
+
+const Book = (props) => {
+
+    const {book, moveBookshelf} = props
 
     return (
       <li>
@@ -16,12 +30,12 @@ class Book extends React.Component {
             {/* Retirar esse estilo inline */}
             <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url('${book.imageLinks.thumbnail}')` }}></div>
             <div className="book-shelf-changer">
-              <select onChange={this.moveBookshelf}>
+              <select onChange={(event) => moveBookshelf(event, book)}>
                 <option value="move" disabled>Move to...</option>
-                <option value="currentlyReading">Currently Reading</option>
-                <option value="wantToRead">Want to Read</option>
-                <option value="read">Read</option>
-                <option value="none">None</option>
+                {/* Verificar se precisa mesmo mudar o none de lugar ou existe uma outra forma
+                    ps: None estava no final da lista */}
+                {shelfs.map(shelf => <option value={`${shelf.apiValue}`}>{shelf.title}</option>)}
+                
               </select>
             </div>
           </div>
@@ -31,6 +45,6 @@ class Book extends React.Component {
       </li>
     )
   }
-}
+
 
 export default Book

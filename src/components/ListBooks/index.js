@@ -36,6 +36,16 @@ class ListBooks extends React.Component {
       return book.shelf === apiValue
     })
   }
+
+  moveBookshelf = (event, book) => {
+    const shelf = event.target.value
+    
+    if(shelf !== "none") {
+      console.log('book: ' + book)
+      console.log('book: ' + shelf)
+      BooksAPI.update(book, shelf)
+    }
+  }
   
   render () {
     return (
@@ -44,7 +54,13 @@ class ListBooks extends React.Component {
         <div className="list-books-content">
           {shelfs.map(shelf => {
             const books = this.filterBooks(shelf.apiValue)
-            return ( <Bookshelf key={shelf.title + shelf.apiValue} title={shelf.title} books={books}/> )
+            return ( 
+              <Bookshelf 
+                books={books}
+                key={shelf.title + shelf.apiValue}
+                moveBookshelf={this.moveBookshelf}
+                title={shelf.title} /> 
+            )
           })}
         </div>
         <ButtonSearch />
