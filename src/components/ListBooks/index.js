@@ -39,11 +39,11 @@ class ListBooks extends React.Component {
 
     if(shelf !== "none") {
       BooksAPI.update(bookChanged, shelf)
-      
       bookChanged.shelf = shelf
+
       this.setState({
-        books: this.state.books .filter(book => book.id !== bookChanged.id)
-                                .concat([bookChanged])
+        books: this.state.books.filter(book => book.id !== bookChanged.id)
+                               .concat([bookChanged])
       })
     }
   }
@@ -56,7 +56,6 @@ class ListBooks extends React.Component {
           {shelfs.map(shelf => {
             const books = this.filterBooksByShelf(shelf.apiValue)
             return ( 
-              
               <Bookshelf 
                 books={books}
                 key={shelf.title + shelf.apiValue}
