@@ -31,19 +31,20 @@ class ListBooks extends React.Component {
     BooksAPI.getAll().then(books => this.setState({ books }))
   }
 
-  filterBooks = (apiValue) => {
-    return this.state.books.filter(book => {
-      return book.shelf === apiValue
-    })
-  }
+  filterBooksByShelf = (apiValue) => this.state.books.filter(book =>  book.shelf === apiValue )
+  
 
-  moveBookshelf = (event, book) => {
+  moveBookshelf = (event, bookChanged) => {
     const shelf = event.target.value
-    
+
     if(shelf !== "none") {
-      console.log('book: ' + book)
-      console.log('book: ' + shelf)
-      BooksAPI.update(book, shelf)
+      BooksAPI.update(bookChanged, shelf)
+      
+      bookChanged.shelf = shelf
+      this.setState({
+        books: this.state.books .filter(book => book.id !== bookChanged.id)
+                                .concat([bookChanged])
+      })
     }
   }
   
@@ -53,8 +54,9 @@ class ListBooks extends React.Component {
         <ListBooksTitle />
         <div className="list-books-content">
           {shelfs.map(shelf => {
-            const books = this.filterBooks(shelf.apiValue)
+            const books = this.filterBooksByShelf(shelf.apiValue)
             return ( 
+              
               <Bookshelf 
                 books={books}
                 key={shelf.title + shelf.apiValue}
