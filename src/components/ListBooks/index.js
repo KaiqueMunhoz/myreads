@@ -6,20 +6,8 @@ import ButtonSearch from '../ButtonSearch';
 import ListBooksTitle from '../ListBooksTitle';
 import Bookshelf from '../Bookshelf';
 
-const shelfs = [
-  {
-    title: "Current reading",
-    apiValue: "currentlyReading"
-  },
-  {
-    title: "Want to read",
-    apiValue: "wantToRead"
-  },
-  {
-    title: "Read",
-    apiValue: "read"
-  }
-]
+//Model
+import shelfs from '../../model/shelfs'
 
 class ListBooks extends React.Component {
 
