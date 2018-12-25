@@ -1,4 +1,5 @@
 import React from 'react'
+import './SearchBooksBar.css'
 import { Link } from 'react-router-dom'
 
 const SearchBooksBar = () => {

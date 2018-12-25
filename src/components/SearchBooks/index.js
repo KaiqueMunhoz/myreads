@@ -1,7 +1,13 @@
 import React from 'react'
+import './SearchBooks.css'
+
+//API
+import * as BooksAPI from '../../api/BooksAPI'
 
 //Components
 import SearchBooksBar from '../SearchBooksBar'
+import Book from '../Book'
+
 
 class SearchBooks extends React.Component {
 
