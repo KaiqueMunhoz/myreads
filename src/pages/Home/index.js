@@ -24,22 +24,10 @@ class Home extends React.Component {
 
   filterBooksByShelf = (apiValue) => this.state.books.filter(book =>  book.shelf === apiValue )
   
-
-  moveBookshelf = (event, bookChanged) => {
-    const shelf = event.target.value
-
-    if(shelf !== "none") {
-      BooksAPI.update(bookChanged, shelf)
-      bookChanged.shelf = shelf
-
-      this.setState({
-        books: this.state.books.filter(book => book.id !== bookChanged.id)
-                               .concat([bookChanged])
-      })
-    }
-  }
-  
   render () {
+
+    const {moveBookshelf} = this.props
+
     return (
       <div className="app">
         <div className="list-books">
@@ -51,7 +39,7 @@ class Home extends React.Component {
               <Bookshelf 
                 books={books}
                 key={shelf.title + shelf.apiValue}
-                moveBookshelf={this.moveBookshelf}
+                moveBookshelf={moveBookshelf}
                 title={shelf.title} /> 
             )
           })}

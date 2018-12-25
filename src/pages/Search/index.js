@@ -31,6 +31,7 @@ class Search extends React.Component {
   
   render() {
     const {books} = this.state
+    const {moveBookshelf} = this.props
     return (
       <div className="search-books">
         <SearchBooksBar searchBooks={this.searchBooks}/>
@@ -40,8 +41,8 @@ class Search extends React.Component {
             books.map(book => 
             <Book 
               book={book}
-              key={book.id} />
-              // moveBookshelf={moveBookshelf} 
+              key={book.id}
+              moveBookshelf={moveBookshelf}  />
           )}
           </ol>
         </div>
