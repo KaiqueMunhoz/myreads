@@ -23,13 +23,13 @@ const shelfs = [
 const Book = (props) => {
 
     const {book, moveBookshelf} = props
+    const image = book.imageLinks
     
     return (
       <li>
         <div className="book">
           <div className="book-top">
-            {/* Retirar esse estilo inline */}
-            <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url('${book.imageLinks.thumbnail}')` }}></div>
+            <img className="book-cover" src={!image ? '': image.thumbnail} alt='Book Cover' />
             <div className="book-shelf-changer">
               <select onChange={(event) => moveBookshelf(event, book)}>
                 <option value="move" disabled>Move to...</option>
