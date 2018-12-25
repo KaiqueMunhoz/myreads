@@ -23,7 +23,7 @@ const shelfs = [
 const Book = (props) => {
 
     const {book, moveBookshelf} = props
-
+    
     return (
       <li>
         <div className="book">
@@ -40,8 +40,10 @@ const Book = (props) => {
               </select>
             </div>
           </div>
-          <div className="book-title">{book.title}</div>
-          {book.authors.map(author => <div key={author + book.id} className="book-authors">{author}</div> )}
+           <div className="book-title">{book.title}</div>
+           {/* Arrumar o if aqui depois */}
+          {book.authors ? 
+            book.authors.map(author => <div key={author + book.id} className="book-authors">{author}</div> ): ''}
         </div>
       </li>
     )
