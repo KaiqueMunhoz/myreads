@@ -15,12 +15,17 @@ const Book = (props) => {
           <div className="book-top">
             <img className="book-cover" src={!image ? '': image.thumbnail} alt='Book Cover' />
             <div className="book-shelf-changer">
-              <select onChange={(event) => moveBookshelf(event, book)}>
+              <select
+                value={book.shelf ? book.shelf : 'none'}
+                onChange={(event) => moveBookshelf(event.target.value, book)}>
                 <option value="move" disabled>Move to...</option>
                 {shelfs.map(shelf =>
                   <option 
-                {shelfs.map(shelf => <option key={shelf.title+shelf.apiValue} value={`${shelf.apiValue}`}>{shelf.title}</option>)}
-                
+                    key={shelf.title+shelf.apiValue}
+                    value={`${shelf.apiValue}`} >
+                      {shelf.title}
+                  </option>
+                )}
               </select>
             </div>
           </div>
