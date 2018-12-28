@@ -3,10 +3,6 @@ import './Book.css'
 
 const shelfs = [
   {
-    title: "none",
-    apiValue: "None"
-  },
-  {
     title: "Current reading",
     apiValue: "currentlyReading"
   },
@@ -17,6 +13,10 @@ const shelfs = [
   {
     title: "Read",
     apiValue: "read"
+  },
+  {
+    title: "None",
+    apiValue: "none"
   }
 ]
 
