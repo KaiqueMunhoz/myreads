@@ -15,19 +15,13 @@ class Search extends React.Component {
     books : []
   }
 
-  searchBooks = (event) => {
-    const query = event.target.value.trim()
-    console.log('query: ' + query)
-    
-    BooksAPI.search(query)
-    .then(books => {
-      
+  searchBooks = (query) => {
+    BooksAPI.search(query).then(books => {
       if(books !== undefined) {
         this.setState({ books: books })
       } else {
         this.setState({ books: [] })
       }
-      
     })
     .catch(err => alert(err))
   }
@@ -35,6 +29,7 @@ class Search extends React.Component {
   render() {
     const {books} = this.state
     const {moveBookshelf} = this.props
+    
     return (
       <div className="search-books">
         <SearchBooksBar searchBooks={this.searchBooks}/>

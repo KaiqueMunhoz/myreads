@@ -14,7 +14,7 @@ const SearchBooksBar = (props) => {
       <div className="search-books-input-wrapper">
         <input
         type="text"
-        onChange={searchBooks}
+        onChange={(event) => searchBooks(event.target.value.trim().toLowerCase())}
         placeholder="Search by title or author" />
       </div>
     </div>
