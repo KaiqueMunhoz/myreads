@@ -1,24 +1,8 @@
 import React from 'react'
 import './Book.css'
 
-const shelfs = [
-  {
-    title: "Current reading",
-    apiValue: "currentlyReading"
-  },
-  {
-    title: "Want to read",
-    apiValue: "wantToRead"
-  },
-  {
-    title: "Read",
-    apiValue: "read"
-  },
-  {
-    title: "None",
-    apiValue: "none"
-  }
-]
+//Model
+import shelfs from '../../model/shelfs'
 
 const Book = (props) => {
 
@@ -33,8 +17,8 @@ const Book = (props) => {
             <div className="book-shelf-changer">
               <select onChange={(event) => moveBookshelf(event, book)}>
                 <option value="move" disabled>Move to...</option>
-                {/* Verificar se precisa mesmo mudar o none de lugar ou existe uma outra forma
-                    ps: None estava no final da lista */}
+                {shelfs.map(shelf =>
+                  <option 
                 {shelfs.map(shelf => <option key={shelf.title+shelf.apiValue} value={`${shelf.apiValue}`}>{shelf.title}</option>)}
                 
               </select>
