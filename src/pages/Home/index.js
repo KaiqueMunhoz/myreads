@@ -35,12 +35,17 @@ class Home extends React.Component {
         <div className="list-books-content">
           {shelfs.map(shelf => {
             const books = this.filterBooksByShelf(shelf.apiValue)
-            return ( 
-              <Bookshelf 
-                books={books}
-                key={shelf.title + shelf.apiValue}
-                moveBookshelf={moveBookshelf}
-                title={shelf.title} /> 
+            return (
+              <div>
+                {shelf.apiValue !== 'none' ?
+                    <Bookshelf 
+                      books={books}
+                      key={shelf.title + shelf.apiValue}
+                      moveBookshelf={moveBookshelf}
+                      title={shelf.title} /> 
+                  : ''
+                }
+              </div>
             )
           })}
         </div>
