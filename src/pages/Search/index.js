@@ -24,7 +24,10 @@ class Search extends React.Component {
       
       if(books !== undefined) {
         this.setState({ books: books })
+      } else {
+        this.setState({ books: [] })
       }
+      
     })
     .catch(err => alert(err))
   }
