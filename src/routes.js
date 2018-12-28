@@ -14,9 +14,7 @@ class Routes extends React.Component {
     books : []
   }
 
-  moveBookshelf = (event, bookChanged) => {
-    const shelf = event.target.value
-
+  moveBookshelf = (shelf, bookChanged) => {
     if(shelf !== "none") {
       BooksAPI.update(bookChanged, shelf)
       bookChanged.shelf = shelf
