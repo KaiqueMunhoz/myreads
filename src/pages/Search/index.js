@@ -12,22 +12,33 @@ import Book from '../../components/Book'
 class Search extends React.Component {
 
   state = {
-    books : []
+    booksSearched : []
+  }
+
+  updateShelfOf = (booksSearched) => {
+    booksSearched.map(bookSearched => {
+      this.props.books.forEach(book => {
+        if(book.id === bookSearched.id) {
+          bookSearched.shelf = book.shelf
+        }
+      }) 
+    })
   }
 
   searchBooks = (query) => {
-    BooksAPI.search(query).then(books => {
-      if(books !== undefined) {
-        this.setState({ books: books })
+    BooksAPI.search(query).then(booksSearched => {
+      if(booksSearched !== undefined) {
+        this.updateShelfOf(booksSearched)
+        this.setState({ booksSearched: booksSearched })
       } else {
-        this.setState({ books: [] })
+        this.setState({ booksSearched: [] })
       }
     })
     .catch(err => alert(err))
   }
   
   render() {
-    const {books} = this.state
+    const {booksSearched} = this.state
     const {moveBookshelf} = this.props
     
     return (
@@ -35,8 +46,8 @@ class Search extends React.Component {
         <SearchBooksBar searchBooks={this.searchBooks}/>
         <div className="search-books-results">
           <ol className="books-grid">
-          { books.length &&
-            books.map(book => 
+          { booksSearched.length &&
+            booksSearched.map(book => 
             <Book 
               book={book}
               key={book.id}
