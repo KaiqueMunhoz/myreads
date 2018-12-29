@@ -9,21 +9,19 @@ import Bookshelf from '../../components/Bookshelf';
 //Model
 import shelfs from '../../model/shelfs'
 
-class Home extends React.Component {
+const Home = (props) => {
 
-  filterBooksByShelf = (apiValue) => this.props.books.filter(book =>  book.shelf === apiValue )
-  
-  render () {
+    const {moveBookshelf} = props
 
-    const {moveBookshelf} = this.props
-
+    const filterBooksByShelf = (apiValue) => props.books.filter(book =>  book.shelf === apiValue )    
+    
     return (
       <div className="app">
         <div className="list-books">
         <ListBooksTitle />
         <div className="list-books-content">
           {shelfs.map(shelf => {
-            const books = this.filterBooksByShelf(shelf.apiValue)
+            const books = filterBooksByShelf(shelf.apiValue)
             return shelf.apiValue !== 'none' &&
               <Bookshelf 
                 books={books}
@@ -37,7 +35,6 @@ class Home extends React.Component {
       </div>
     </div>
     )
-  }
 }
 
 export default Home
