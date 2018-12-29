@@ -16,7 +16,7 @@ class Search extends React.Component {
   }
 
   updateShelfOf = (booksSearched) => {
-    booksSearched.map(bookSearched => {
+    booksSearched.forEach(bookSearched => {
       this.props.books.forEach(book => {
         if(book.id === bookSearched.id) {
           bookSearched.shelf = book.shelf
