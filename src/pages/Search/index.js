@@ -34,7 +34,7 @@ class Search extends React.Component {
         this.setState({ booksSearched: [] })
       }
     })
-    .catch(err => alert(err))
+    .catch(error => console.log(error))
   }
   
   render() {
