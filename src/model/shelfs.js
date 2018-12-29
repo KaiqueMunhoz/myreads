@@ -10,7 +10,11 @@ const shelfs = [
   {
     title: "Read",
     apiValue: "read"
-  }
+  },
+  {
+    title: "None",
+    apiValue: "none"
+  },
 ]
 
 export default shelfs

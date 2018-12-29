@@ -14,9 +14,11 @@ class Routes extends React.Component {
     books : []
   }
 
-  moveBookshelf = (event, bookChanged) => {
-    const shelf = event.target.value
+  componentDidMount() {
+    BooksAPI.getAll().then(books => this.setState({ books }))
+  }
 
+  moveBookshelf = (shelf, bookChanged) => {
     if(shelf !== "none") {
       BooksAPI.update(bookChanged, shelf)
       bookChanged.shelf = shelf
@@ -29,13 +31,20 @@ class Routes extends React.Component {
   }
 
   render() {
+
+    const {books} = this.state
+
     return (
       <Switch>
         <Route path='/' exact render={() => (
-            <Home moveBookshelf={this.moveBookshelf}/>
+            <Home 
+              moveBookshelf={this.moveBookshelf}
+              books={books}/>
         )} />
         <Route path='/search' render={() => (
-            <Search moveBookshelf={this.moveBookshelf}/>
+            <Search
+              moveBookshelf={this.moveBookshelf}
+              books={books}/>
         )} />
       </Switch>
     );
