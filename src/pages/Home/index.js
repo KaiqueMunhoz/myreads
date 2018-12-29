@@ -1,9 +1,6 @@
 import React from 'react'
 import './Home.css'
 
-//API
-import * as BooksAPI from '../../api/BooksAPI' 
-
 //Components
 import ButtonSearch from '../../components/ButtonSearch';
 import ListBooksTitle from '../../components/ListBooksTitle';
@@ -14,15 +11,7 @@ import shelfs from '../../model/shelfs'
 
 class Home extends React.Component {
 
-  state = {
-    books: []
-  }
-
-  componentDidMount() {
-    BooksAPI.getAll().then(books => this.setState({ books }))
-  }
-
-  filterBooksByShelf = (apiValue) => this.state.books.filter(book =>  book.shelf === apiValue )
+  filterBooksByShelf = (apiValue) => this.props.books.filter(book =>  book.shelf === apiValue )
   
   render () {
 
