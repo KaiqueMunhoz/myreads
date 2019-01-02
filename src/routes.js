@@ -1,16 +1,16 @@
 import React from 'react';
-import {Route, Switch} from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
-//Components
+//Pages
 import Home from './pages/Home'
 import Search from './pages/Search'
 
-const Routes = () =>  {
+const Routes = (props) => {
 
-  return(
+  return (
     <Switch>
-      <Route path='/' exact component={Home}/>
-      <Route path='/search' component={Search}/>
+      <Route path='/' exact render={() => ( <Home {...props}/> )} />
+      <Route path='/search' render={() => ( <Search {...props}/> )} />
     </Switch>
   );
 }

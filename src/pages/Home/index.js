@@ -1,21 +1,39 @@
 import React from 'react'
-// import * as BooksAPI from './BooksAPI'
 import './Home.css'
 
 //Components
-import ListBooks from '../../components/ListBooks';
+import ButtonSearch from '../../components/ButtonSearch';
+import ListBooksTitle from '../../components/ListBooksTitle';
+import Bookshelf from '../../components/Bookshelf';
 
-class Home extends React.Component {
-  state = {
-  }
+//Model
+import Shelfs from '../../model/Shelfs'
 
-  render() {
-    return (
-      <div className="app">
-        <ListBooks />
+const Home = (props) => {
+
+  const {moveBookshelf} = props
+  const filterBooksByShelf = (apiValue) => props.books.filter(book =>  book.shelf === apiValue )    
+  const bookshelfs = Shelfs.map(shelf => {
+    const books = filterBooksByShelf(shelf.apiValue)
+    return shelf.apiValue !== 'none' &&
+      <Bookshelf 
+        books={books}
+        key={shelf.title + shelf.apiValue}
+        moveBookshelf={moveBookshelf}
+        title={shelf.title} /> 
+  })
+    
+  return (
+    <div className="app">
+      <div className="list-books">
+        <ListBooksTitle />
+        <div className="list-books-content">
+          {bookshelfs}
+        </div>
+        <ButtonSearch />
       </div>
-    )
-  }
+    </div>
+  )
 }
 
 export default Home

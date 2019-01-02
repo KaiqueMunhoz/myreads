@@ -3,10 +3,10 @@ import ReactDOM from 'react-dom'
 
 //Routes
 import { BrowserRouter } from 'react-router-dom';
-import Routes from './routes';
+import App from './app';
 
 ReactDOM.render(
-  <BrowserRouter>
-      <Routes />
-  </BrowserRouter>
-  , document.getElementById('root'));
+    <BrowserRouter>
+        <App />
+    </BrowserRouter>
+    , document.getElementById('root'));
