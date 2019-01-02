@@ -33,11 +33,6 @@ To install create-react-app run the follows command line
 npm install -g create-react-app
 ```
 
-To check if everything finish was expected, run the command
-
-```
-reate-react-app --version
-```
 - Dependencies
 
 To install all others dependencies of this project, run the following command line
