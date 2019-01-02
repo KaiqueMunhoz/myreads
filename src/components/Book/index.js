@@ -23,7 +23,7 @@ const Book = (props) => {
           <BookSelect book={book} moveBookshelf={moveBookshelf}/>
         </div>
         <div className="book-title">{book.title}</div>
-        {showAuthors}
+        {showAuthors()}
       </div>
     </li>
   )
