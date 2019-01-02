@@ -25,7 +25,6 @@ const BookSelect = (props) => {
       </select>
     </div>
   )
-  
 }
 
 export default BookSelect
