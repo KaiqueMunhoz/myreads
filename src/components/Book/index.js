@@ -14,9 +14,7 @@ const Book = (props) => {
         <div className="book">
           <div className="book-top">
             <img className="book-cover" src={!image ? '': image.thumbnail} alt='Book Cover' />
-            <div className="book-shelf-changer">
-              <BookSelect book={book} moveBookshelf={moveBookshelf}/>
-            </div>
+            <BookSelect book={book} moveBookshelf={moveBookshelf}/>
           </div>
            <div className="book-title">{book.title}</div>
            {/* Arrumar o if aqui depois */}
