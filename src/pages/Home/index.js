@@ -13,7 +13,7 @@ const Home = (props) => {
 
   const {moveBookshelf} = props
   const filterBooksByShelf = (apiValue) => props.books.filter(book =>  book.shelf === apiValue )    
-  const bookshelfs = Shelfs.map(shelf => {
+  const bookshelves = Shelfs.map(shelf => {
     const books = filterBooksByShelf(shelf.apiValue)
     return shelf.apiValue !== 'none' &&
       <Bookshelf 
@@ -28,7 +28,7 @@ const Home = (props) => {
       <div className="list-books">
         <ListBooksTitle />
         <div className="list-books-content">
-          {bookshelfs}
+          {bookshelves}
         </div>
         <ButtonSearch />
       </div>
