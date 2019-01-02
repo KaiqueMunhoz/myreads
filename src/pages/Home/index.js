@@ -7,13 +7,13 @@ import ListBooksTitle from '../../components/ListBooksTitle';
 import Bookshelf from '../../components/Bookshelf';
 
 //Model
-import shelfs from '../../model/shelfs'
+import Shelfs from '../../model/Shelfs'
 
 const Home = (props) => {
 
   const {moveBookshelf} = props
   const filterBooksByShelf = (apiValue) => props.books.filter(book =>  book.shelf === apiValue )    
-  const bookshelfs = shelfs.map(shelf => {
+  const bookshelfs = Shelfs.map(shelf => {
     const books = filterBooksByShelf(shelf.apiValue)
     return shelf.apiValue !== 'none' &&
       <Bookshelf 
