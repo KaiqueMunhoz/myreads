@@ -1,8 +1,8 @@
 import React from 'react'
 import './Book.css'
 
-//Model
-import shelfs from '../../model/shelfs'
+//Components
+import BookSelect from '../BookSelect'
 
 const Book = (props) => {
 
@@ -15,18 +15,7 @@ const Book = (props) => {
           <div className="book-top">
             <img className="book-cover" src={!image ? '': image.thumbnail} alt='Book Cover' />
             <div className="book-shelf-changer">
-              <select
-                value={book.shelf ? book.shelf : 'none'}
-                onChange={(event) => moveBookshelf(event.target.value, book)}>
-                <option value="move" disabled>Move to...</option>
-                {shelfs.map(shelf =>
-                  <option 
-                    key={shelf.title+shelf.apiValue}
-                    value={`${shelf.apiValue}`} >
-                      {shelf.title}
-                  </option>
-                )}
-              </select>
+              <BookSelect book={book} moveBookshelf={moveBookshelf}/>
             </div>
           </div>
            <div className="book-title">{book.title}</div>
