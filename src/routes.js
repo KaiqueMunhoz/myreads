@@ -1,54 +1,22 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
-//API
-import * as BooksAPI from './api/BooksAPI' 
-
-//Components
+//Pages
 import Home from './pages/Home'
 import Search from './pages/Search'
 
-class Routes extends React.Component {
-
-  state = {
-    books : []
-  }
-
-  componentDidMount() {
-    BooksAPI.getAll().then(books => this.setState({ books }))
-  }
-
-  moveBookshelf = (shelf, bookChanged) => {
-    if(shelf !== "none") {
-      BooksAPI.update(bookChanged, shelf)
-      bookChanged.shelf = shelf
-
-      this.setState({
-        books: this.state.books.filter(book => book.id !== bookChanged.id)
-                               .concat([bookChanged])
-      })
-    }
-  }
-
-  render() {
-
-    const {books} = this.state
+const Routes = (props) => {
 
     return (
       <Switch>
         <Route path='/' exact render={() => (
-            <Home 
-              moveBookshelf={this.moveBookshelf}
-              books={books}/>
+            <Home {...props}/>
         )} />
         <Route path='/search' render={() => (
-            <Search
-              moveBookshelf={this.moveBookshelf}
-              books={books}/>
+            <Search {...props}/>
         )} />
       </Switch>
     );
-  }
 }
 
 export default Routes;

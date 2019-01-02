@@ -16,7 +16,7 @@ class Search extends React.Component {
   }
 
   updateShelfOf = (booksSearched) => {
-    booksSearched.map(bookSearched => {
+    booksSearched.forEach(bookSearched => {
       this.props.books.forEach(book => {
         if(book.id === bookSearched.id) {
           bookSearched.shelf = book.shelf
@@ -34,25 +34,26 @@ class Search extends React.Component {
         this.setState({ booksSearched: [] })
       }
     })
-    .catch(err => alert(err))
+    .catch(error => console.log(error))
   }
   
   render() {
     const {booksSearched} = this.state
     const {moveBookshelf} = this.props
-    
+    const books = booksSearched.length &&
+                  booksSearched.map(book => 
+                  <Book 
+                    book={book}
+                    key={book.id}
+                    moveBookshelf={moveBookshelf}  />
+                  )
+          
     return (
       <div className="search-books">
         <SearchBooksBar searchBooks={this.searchBooks}/>
         <div className="search-books-results">
           <ol className="books-grid">
-          { booksSearched.length &&
-            booksSearched.map(book => 
-            <Book 
-              book={book}
-              key={book.id}
-              moveBookshelf={moveBookshelf}  />
-          )}
+          { books }
           </ol>
         </div>
       </div>
