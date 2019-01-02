@@ -26,12 +26,12 @@ class Search extends React.Component {
 
   searchBooks = (query) => {
     BooksAPI.search(query).then(booksSearched => {
-      if(booksSearched !== undefined) {
-        this.updateShelfOf(booksSearched)
-        this.setState({ booksSearched: booksSearched })
-      } else {
+      if(!booksSearched) {
         this.setState({ booksSearched: [] })
+        return 
       }
+      this.updateShelfOf(booksSearched)
+      this.setState({ booksSearched: booksSearched })
     })
     .catch(error => {
       if(error) {
