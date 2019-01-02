@@ -16,16 +16,18 @@ const Book = (props) => {
   }
   
   return (
-    <li>
-      <div className="book">
-        <div className="book-top">
-          <img className="book-cover" src={!image ? '': image.thumbnail} alt='Book Cover' />
-          <BookSelect book={book} moveBookshelf={moveBookshelf}/>
+    <div>
+      <li>
+        <div className="book">
+          <div className="book-top">
+            <img className="book-cover" src={!image ? '': image.thumbnail} alt='Book Cover' />
+            <BookSelect book={book} moveBookshelf={moveBookshelf}/>
+          </div>
+          <div className="book-title">{book.title}</div>
+          {showAuthors}
         </div>
-        <div className="book-title">{book.title}</div>
-        {showAuthors}
-      </div>
-    </li>
+      </li>
+    </div>
   )
 }
 
