@@ -12,7 +12,7 @@ const Book = (props) => {
       if(!book.authors) {
         return ''
       }
-      return book.authors.map((author, id) => <div key={author + book.id} className="book-authors">{id + " " + author}</div> )
+      return book.authors.map(author => <div key={author + book.id} className="book-authors">{author}</div> )
     }
     
     return (
