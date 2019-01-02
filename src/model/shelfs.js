@@ -1,4 +1,4 @@
-const shelfs = [
+const Shelfs = [
   {
     title: "Current reading",
     apiValue: "currentlyReading"
@@ -17,4 +17,4 @@ const shelfs = [
   },
 ]
 
-export default shelfs
+export default Shelfs

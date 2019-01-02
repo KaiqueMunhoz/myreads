@@ -1,7 +1,6 @@
 import React from 'react'
 import './Bookshelf.css'
 
-
 //Components
 import Book from '../Book'
 

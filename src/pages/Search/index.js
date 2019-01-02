@@ -8,7 +8,6 @@ import * as BooksAPI from '../../api/BooksAPI'
 import SearchBooksBar from '../../components/SearchBooksBar'
 import Book from '../../components/Book'
 
-
 class Search extends React.Component {
 
   state = {
