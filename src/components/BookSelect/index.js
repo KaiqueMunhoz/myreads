@@ -1,4 +1,5 @@
 import React from 'react';
+import './BookSelect.css'
 
 //Model
 import shelfs from '../../model/shelfs'
@@ -15,12 +16,14 @@ const BookSelect = (props) => {
   )
 
   return (
-    <select
-      value={book.shelf ? book.shelf : 'none'}
-      onChange={(event) => moveBookshelf(event.target.value, book)}>
-      <option value="move" disabled>Move to...</option>
-      {options}
-    </select>
+    <div className="book-shelf-changer">
+      <select
+        value={book.shelf ? book.shelf : 'none'}
+        onChange={(event) => moveBookshelf(event.target.value, book)}>
+        <option value="move" disabled>Move to...</option>
+        {options}
+      </select>
+    </div>
   )
   
 }
