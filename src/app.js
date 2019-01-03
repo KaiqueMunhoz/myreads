@@ -11,7 +11,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    BooksAPI.getAll().then(books => this.setState({ books }))
+    BooksAPI.getAll().then(books => this.setState({ books })).catch(error => console.log(`Error: ${error}`))
   }
 
   moveBookshelf = (shelf, bookChanged) => {
