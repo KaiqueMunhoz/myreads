@@ -1,5 +1,6 @@
 import React from 'react'
 import './Search.css'
+import PropTypes from 'prop-types'
 
 //API
 import * as BooksAPI from '../../api/BooksAPI' 
@@ -56,12 +57,17 @@ class Search extends React.Component {
         <SearchBooksBar searchBooks={this.searchBooks}/>
         <div className="search-books-results">
           <ol className="books-grid">
-          { books }
+          {books}
           </ol>
         </div>
       </div>
     )
   }
+}
+
+Search.propTypes = {
+  moveBookshelf: PropTypes.func,
+  books: PropTypes.arrayOf(PropTypes.object)
 }
 
 export default Search
