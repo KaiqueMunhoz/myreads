@@ -1,5 +1,6 @@
 import React from 'react';
 import './BookSelect.css'
+import PropTypes from 'prop-types'
 
 //Model
 import Shelfs from '../../model/Shelfs'
@@ -9,7 +10,7 @@ const BookSelect = (props) => {
   const {book, moveBookshelf} = props
   const options = Shelfs.map(shelf =>
     <option 
-      key={shelf.title+shelf.apiValue}
+      key={shelf.title + shelf.apiValue}
       value={`${shelf.apiValue}`} >
         {shelf.title}
     </option>
@@ -25,6 +26,11 @@ const BookSelect = (props) => {
       </select>
     </div>
   )
+}
+
+BookSelect.propTypes = {
+  moveBookshelf: PropTypes.func,
+  book: PropTypes.object
 }
 
 export default BookSelect

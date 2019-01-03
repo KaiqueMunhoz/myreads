@@ -1,5 +1,6 @@
 import React from 'react'
 import './Bookshelf.css'
+import PropTypes from 'prop-types'
 
 //Components
 import Book from '../Book'
@@ -23,6 +24,12 @@ const Bookshelf = (props) => {
       </div>
     </div>
   )
+}
+
+Bookshelf.propTypes = {
+  moveBookshelf: PropTypes.func,
+  title: PropTypes.string,
+  books: PropTypes.arrayOf(PropTypes.object)
 }
 
 export default Bookshelf
