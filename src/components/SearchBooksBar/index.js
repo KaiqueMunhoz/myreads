@@ -1,5 +1,6 @@
 import React from 'react'
 import './SearchBooksBar.css'
+import PropTypes from 'prop-types'
 
 //Router
 import { Link } from 'react-router-dom'
@@ -23,6 +24,10 @@ const SearchBooksBar = (props) => {
       </div>
     </div>
   )
+}
+
+SearchBooksBar.propTypes = {
+  searchBooks: PropTypes.func
 }
 
 export default SearchBooksBar

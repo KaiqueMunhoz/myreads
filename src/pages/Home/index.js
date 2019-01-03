@@ -1,5 +1,6 @@
 import React from 'react'
 import './Home.css'
+import PropTypes from 'prop-types'
 
 //Components
 import ButtonSearch from '../../components/ButtonSearch';
@@ -34,6 +35,11 @@ const Home = (props) => {
       </div>
     </div>
   )
+}
+
+Home.propTypes = {
+  moveBookshelf: PropTypes.func,
+  books: PropTypes.arrayOf(PropTypes.object)
 }
 
 export default Home
