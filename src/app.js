@@ -15,7 +15,6 @@ class App extends React.Component {
   }
 
   moveBookshelf = (shelf, bookChanged) => {
-    if(shelf !== "none") {
       BooksAPI.update(bookChanged, shelf)
       bookChanged.shelf = shelf
 
@@ -23,7 +22,6 @@ class App extends React.Component {
         books: this.state.books.filter(book => book.id !== bookChanged.id)
                                .concat([bookChanged])
       })
-    }
   }
 
   render() {
