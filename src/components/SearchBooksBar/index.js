@@ -1,17 +1,16 @@
 import React from 'react'
 import './SearchBooksBar.css'
 import PropTypes from 'prop-types'
-
+import { debounce } from 'lodash'
 //Router
 import { Link } from 'react-router-dom'
 
 const SearchBooksBar = (props) => {
 
   const {searchBooks} = props
-  const getInputValue = (event) => {
-    const value = event.target.value.trim().toLowerCase()
+  const getInputValue = debounce((value) => {
     return searchBooks(value)
-  }
+  }, 500)
 
   return (
     <div className="search-books-bar">
@@ -19,7 +18,7 @@ const SearchBooksBar = (props) => {
       <div className="search-books-input-wrapper">
         <input
         type="text"
-        onChange={getInputValue}
+        onChange={event => getInputValue(event.target.value.trim().toLowerCase())}
         placeholder="Search by title or author" />
       </div>
     </div>
