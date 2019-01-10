@@ -9,6 +9,12 @@
   }
 }
 
+@media (max-width: 450px) {
+  .bookshelf-title {
+    text-align: center;
+  }
+}
+
 .bookshelf-grey-light {
   padding: 20px;
   margin-top: 20px;
