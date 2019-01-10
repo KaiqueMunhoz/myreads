@@ -1,5 +1,4 @@
 import React from 'react'
-import './Book.css'
 import PropTypes from 'prop-types'
 
 //Components
