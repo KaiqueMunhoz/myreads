@@ -29,12 +29,11 @@ class Search extends React.Component {
         return 
       }
       this.updateShelfOf(booksSearched)
-      this.setState({ booksSearched: booksSearched })
+      this.setState({ booksSearched })
     })
     .catch(error => {
-      if(error) {
-        this.setState({ booksSearched: [] })
-      }
+      console.log(`Error: ${error}`)
+      this.setState({ booksSearched: [] })
     })
   }
   
