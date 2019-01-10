@@ -4,7 +4,7 @@ import './ListBooksTitle.css'
 const ListBooksTitle = () => {
   return (
     <div className="list-books-title">
-      <h1>MyReads</h1>
+      <h1 className="text-center">MyReads</h1>
     </div>
   )
 }
