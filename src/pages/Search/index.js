@@ -50,7 +50,7 @@ class Search extends React.Component {
                   )
           
     return (
-      <div className="search-books container-fluid">
+      <div className="search-books">
         <SearchBooksBar searchBooks={this.searchBooks}/>
         <div className="search-books-results">
           <ol className="books-grid">
