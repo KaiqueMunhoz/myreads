@@ -7,7 +7,7 @@ import Book from '../Book'
 
 const Bookshelf = (props) => {
 
-  const {title, moveBookshelf, style} = props
+  const {title, moveBookshelf, styleBookShelf} = props
   const books = props.books.map(book => 
     <Book 
       book={book}
@@ -15,7 +15,7 @@ const Bookshelf = (props) => {
       moveBookshelf={moveBookshelf} />
   )
   return (
-    <div className={style}>
+    <div className={styleBookShelf}>
       <h2 className="bookshelf-title">{title}</h2>
       <div className="bookshelf-books">
         <ol className="books-grid">

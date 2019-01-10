@@ -19,7 +19,7 @@ const Home = (props) => {
     const books = filterBooksByShelf(shelf.apiValue)
     return shelf.apiValue !== 'none' &&
       <Bookshelf 
-        style={changeStyle(id)}
+        styleBookShelf={changeStyle(id)}
         books={books}
         key={shelf.title + shelf.apiValue}
         moveBookshelf={moveBookshelf}
