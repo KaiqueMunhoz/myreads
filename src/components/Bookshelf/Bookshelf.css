@@ -1,6 +1,6 @@
-
 .bookshelf {
-  padding: 0 10px 20px;
+  padding: 20px;
+  margin-top: 20px;
 }
 
 @media (min-width: 600px) {
@@ -9,8 +9,10 @@
   }
 }
 
-.bookshelf-title {
-  border-bottom: 1px solid #dedede;
+.bookshelf-grey-light {
+  padding: 20px;
+  margin-top: 20px;
+  background-color: #f8f9fa;
 }
 
 .bookshelf-books {
