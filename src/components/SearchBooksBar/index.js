@@ -1,5 +1,4 @@
 import React from 'react'
-import './SearchBooksBar.css'
 import PropTypes from 'prop-types'
 import { debounce } from 'lodash'
 //Router
