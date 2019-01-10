@@ -28,13 +28,11 @@ const Home = (props) => {
     
   return (
     <div className="app">
-      <div className="list-books">
-        <ListBooksTitle />
-        <div className="list-books-content">
-          {bookshelves}
-        </div>
-        <ButtonSearch />
+      <ListBooksTitle />
+      <div className="list-books-content">
+        {bookshelves}
       </div>
+      <ButtonSearch /> 
     </div>
   )
 }

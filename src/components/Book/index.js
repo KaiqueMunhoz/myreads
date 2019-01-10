@@ -1,5 +1,4 @@
 import React from 'react'
-import './Book.css'
 import PropTypes from 'prop-types'
 
 //Components
@@ -9,12 +8,10 @@ const Book = (props) => {
   const cardStyle = {width: '12rem', height: '25rem'}
   const {book, moveBookshelf} = props
   const image = book.imageLinks
-  const showAuthors = () => {
-    if(!book.authors) {
-      return ''
-    }
-    return book.authors.map(author => <div key={author + book.id} className="card-text">{author}</div> )
-  }
+  const showAuthors = () => !book.authors ?  '' : 
+                            book.authors.map(
+                              author => <div key={author + book.id} className="card-text">{author}</div>
+                            )
   
   return (
     <li>
@@ -25,8 +22,6 @@ const Book = (props) => {
           <BookSelect book={book} moveBookshelf={moveBookshelf}/>
           {showAuthors()}
         </div>
-        
-        
       </div>
     </li>
   )

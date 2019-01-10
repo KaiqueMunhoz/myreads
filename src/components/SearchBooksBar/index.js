@@ -17,12 +17,12 @@ const SearchBooksBar = (props) => {
         <Link to='/' className="btn btn-outline-secondary">Back</Link>
       </div>
       <input
-      className="form-control"
-      type="text"
-      onChange={event => getInputValue(event.target.value.trim().toLowerCase())}
-      placeholder="Search by title or author" 
-      aria-label="Search by title or author" 
-      aria-describedby="basic-addon2"/>
+        className="form-control"
+        type="text"
+        onChange={event => getInputValue(event.target.value.trim().toLowerCase())}
+        placeholder="Search by title or author" 
+        aria-label="Search by title or author" 
+        aria-describedby="basic-addon2"/>
     </div>
   )
 }
