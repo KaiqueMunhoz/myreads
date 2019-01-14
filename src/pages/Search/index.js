@@ -16,10 +16,12 @@ class Search extends React.Component {
   }
 
   updateShelfOf = (booksSearched) => {
-    booksSearched.forEach(bookSearched => {
-      const book = this.props.books.find(userBook => userBook.id === bookSearched.id)
-      bookSearched = book
-    })
+    for (let bookSearched of booksSearched) {
+      let book = this.props.books.find(book => book.id === bookSearched.id )
+      if(book) {
+        bookSearched.shelf = book.shelf
+      }
+    }
   }
 
   searchBooks = (query) => {
