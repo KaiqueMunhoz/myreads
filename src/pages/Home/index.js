@@ -11,13 +11,15 @@ import Bookshelf from '../../components/Bookshelf';
 import Shelfs from '../../model/Shelfs'
 
 const Home = (props) => {
-
+  
+  const changeStyle = id =>  id % 2 === 0 ? "bookshelf" : "bookshelf-grey-light"
   const {moveBookshelf} = props
   const filterBooksByShelf = (apiValue) => props.books.filter(book =>  book.shelf === apiValue )    
-  const bookshelves = Shelfs.map(shelf => {
+  const bookshelves = Shelfs.map((shelf, id) => {
     const books = filterBooksByShelf(shelf.apiValue)
     return shelf.apiValue !== 'none' &&
       <Bookshelf 
+        styleBookShelf={changeStyle(id)}
         books={books}
         key={shelf.title + shelf.apiValue}
         moveBookshelf={moveBookshelf}
@@ -26,13 +28,11 @@ const Home = (props) => {
     
   return (
     <div className="app">
-      <div className="list-books">
-        <ListBooksTitle />
-        <div className="list-books-content">
-          {bookshelves}
-        </div>
-        <ButtonSearch />
+      <ListBooksTitle />
+      <div className="list-books-content">
+        {bookshelves}
       </div>
+      <ButtonSearch /> 
     </div>
   )
 }

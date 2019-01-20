@@ -1,5 +1,4 @@
 import React from 'react'
-import './SearchBooksBar.css'
 import PropTypes from 'prop-types'
 import { debounce } from 'lodash'
 //Router
@@ -13,14 +12,17 @@ const SearchBooksBar = (props) => {
   }, 500)
 
   return (
-    <div className="search-books-bar">
-      <Link to='/' className="close-search">Close</Link>
-      <div className="search-books-input-wrapper">
-        <input
+    <div className="input-group input-group-lg">
+      <div className="input-group-prepend">
+        <Link to='/' className="btn btn-outline-secondary">Back</Link>
+      </div>
+      <input
+        className="form-control"
         type="text"
         onChange={event => getInputValue(event.target.value.trim().toLowerCase())}
-        placeholder="Search by title or author" />
-      </div>
+        placeholder="Search by title or author" 
+        aria-label="Search by title or author" 
+        aria-describedby="basic-addon2"/>
     </div>
   )
 }
